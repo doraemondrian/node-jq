@@ -60,9 +60,11 @@ if (platform in DOWNLOAD_MAP) {
   })
 } else {
   // download source and build
+  const url = 'https://github.com/stedolan/jq/archive/1.6rc2.zip'
 
   const build = new BinBuild()
-    .src(`${JQ_INFO.url}/${JQ_INFO.version}/${JQ_INFO.version}.tar.gz`)
+    //.src(`${JQ_INFO.url}/${JQ_INFO.version}/${JQ_INFO.version}.tar.gz`)
+    .src(url)
     .cmd(`./configure --disable-maintainer-mode --prefix=${tempfile()} --bindir=${OUTPUT_DIR}`)
     .cmd('make')
     .cmd('make install')
